@@ -14,6 +14,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          @click='linkto(item.linkpath)'
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -77,13 +78,24 @@ export default {
       drawer: true,
       fixed: false,
       items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
+        icon: 'home',
+        title: 'Inspire',
+        linkpath: '/'
+      },
+      {
+        icon: 'home',
+        title: 'Random',
+        linkpath: '/randow'
       }],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Wubba Lubba Dub Dub'
+    }
+  },
+  methods: {
+    linkto (pathname) {
+      this.$router.push({ path: pathname })
     }
   },
   name: 'App'
